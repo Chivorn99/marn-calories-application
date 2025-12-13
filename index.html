@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Marn Calories</title>
+</head>
+
+<body>
+    <div class="floating-container">
+        <header>
+            <h1>Welcome to Marn Calories</h1>
+        </header>
+        <main>
+            <div class="dashboard">
+                <div class="card">
+                    <h2>Daily Calorie Intake</h2>
+                    <p id="calorie-intake">0 kcal</p>
+                </div>
+                <div class="card">
+                    <h2>Calories Burned</h2>
+                    <p id="calories-burned">0 kcal</p>
+                </div>
+                <div class="card">
+                    <h2>Net Calories</h2>
+                    <p id="net-calories">0 kcal</p>
+                </div>
+            </div>
+            <div class="control-input">
+                <h2>Log Your Meal</h2>
+                <div class="form">
+                    <form id="meal-form">
+                        <label for="meal-name">Meal Name</label>
+                        <input type="text" id="meal-name" name="meal-name" placeholder="e.g. chicken" required>
+
+                        <label for="meal-calories">Calories</label>
+                        <input type="number" id="meal-calories" name="meal-calories" placeholder="e.g. 500" required>
+
+                        <button type="submit">Add Meal</button>
+                    </form>
+                </div>
+            </div>
+            <div class="calories-burn-input">
+                <h2>Log Calories Burned</h2>
+                <div class="form">
+                    <form id="burn-form">
+                        <label for="burn-calories">Calories Burned</label>
+                        <input type="number" id="burn-calories" name="burn-calories" placeholder="e.g. 300" required>
+
+                        <label for="burn-calories-note">Remark</label>
+                        <input type="text" id="burn-calories-note" name="burn-calories-note" placeholder="e.g. running"
+                            required>
+
+                        <button type="submit">Add Burned Calories</button>
+                    </form>
+                </div>
+
+            </div>
+            <div class="history">
+                <h2>Meal History</h2>
+                <ul id="meal-history">
+                </ul>
+            </div>
+        </main>
+        <footer>
+
+        </footer>
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>
