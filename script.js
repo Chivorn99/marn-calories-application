@@ -24,12 +24,17 @@ const updateScreen = () => {
 
     entries.forEach(item => {
         const li = document.createElement('li');
+        li.className = item.type === 'food' ? 'meal-item' : 'burn-item';
 
-        li.className = item.type === 'food' ? 'meal-item' : 'burn-item'; 
-        
+        const timestamp = new Date(item.id).toLocaleString();
+
         li.innerHTML = `
-            <span>${item.name}</span>
+            <div>
+                <span>${item.name}</span>
+                <small style="display:block; color:#999">${timestamp}</small>
+            </div>
             <strong>${item.calories} kcal</strong>
+            <button onclick="deleteEntry(${item.id})">×</button>
         `;
         historyList.appendChild(li);
     });
@@ -49,13 +54,19 @@ const updateScreen = () => {
     netEl.innerText = `${netCalories} kcal`;
 };
 
+const deleteEntry = (id) => {
+    const entries = tracker.getHistory().filter(e => e.id !== id);
+    localStorage.setItem('healthHistory', JSON.stringify(entries));
+    location.reload();
+};
+
 const mealForm = document.getElementById('meal-form');
 mealForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const nameInput = document.getElementById('meal-name');
     const calInput = document.getElementById('meal-calories');
-    
+
     if (calInput.value <= 0) {
         alert('Calories must be greater than 0');
         return;
